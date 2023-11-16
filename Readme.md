@@ -1,4 +1,4 @@
-# Reflector 
+# EOL 
 
 A binary to fetch the API of endoflife.date
 
