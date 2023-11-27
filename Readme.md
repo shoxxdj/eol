@@ -16,3 +16,7 @@ EOL.Date : a binary to fetch the API of endoflife.date
 	-f: Format : table,inline(default)
 	-p: Product
 ```
+
+## Credits
+
+[Endoflife.date](https://endoflife.date/) : For everything this app depends on 
