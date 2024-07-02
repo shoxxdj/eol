@@ -29,7 +29,7 @@ func main() {
 	formatFlag := flag.String("f","inline","Ouptut Format : table,inline(default)")
 
 	flag.Usage = func() {
-		fmt.Fprintf(os.Stderr, "EOL.Date : a binary to fetch the API of endoflife.date\n")
+		fmt.Fprintf(os.Stderr, "EOL.Date : a binary to fetch the API of endoflife.date (v1.0.1)\n")
 
 		flag.VisitAll(func(f *flag.Flag) {
 			fmt.Fprintf(os.Stderr, "\t-%v: %v\n", f.Name, f.Usage) // f.Name, f.Value
@@ -114,6 +114,9 @@ func main() {
 				// 'Eol' is a boolean, so we need to convert it to a string.
 				eol = fmt.Sprintf("%t", b)
 			}
+			if(cycle!=""){
+				item.Cycle=cycle; //display bug
+			}
 			table.Append([]string{item.Cycle, strconv.FormatBool(item.Lts), item.ReleaseDate,item.Support,eol,item.Latest,item.Link})
 		}
 		table.Render()
@@ -126,6 +129,9 @@ func main() {
 			} else if b, ok := item.Eol.(bool); ok {
 				// 'Eol' is a boolean, so we need to convert it to a string.
 				eol = fmt.Sprintf("%t", b)
+			}
+			if(cycle!=""){
+				item.Cycle=cycle; //display bug
 			}
 			fmt.Printf("Cycle : %s, Lts : %s, ReleaseDate : %s, Support : %s, Eol : %s, Latest : %s, Link: %s\n",item.Cycle, strconv.FormatBool(item.Lts), item.ReleaseDate,item.Support,eol,item.Latest,item.Link)
 		}
